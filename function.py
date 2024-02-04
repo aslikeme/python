@@ -1,18 +1,22 @@
-print('Введите местоположение коня: \n')
-chessPosX = float(input())
-chessPosY = float(input())
-print('Введите местоположение точки на доске: \n')
-boardPosX = float(input())
-boardPosY = float(input())
+def triangle():
+    stars = 1
+    for line in range(5):
+        print(' ' * (5 -line -1),end = '')
+        print('*' * stars)
+        stars += 2
 
-x = int(chessPosX * 10)
-y = int(chessPosY * 10)
-bx = int(boardPosX * 10)
-by = int(boardPosY * 10)
+def rectangle():
+    for line in range(5):
+        if line == 0 or line == 4:
+            print('*' * 5)
+        else:
+            print('*' + ' ' * 3 +'*')            
 
-print('Конь в клетке (',x,',',y,'). Точка в клетке (',bx,',',by,')')
+choice = int(input('Что рисуем? 1- треугольник, 2- прямоугольник.'))
 
-if (abs(y - by) == 2 and abs(x - bx) == 1) or (abs(x - bx) == 2 and abs(y - by) == 1):
-    print('Да, конь может ходить в эту точку.')
+if choice == 1:
+    triangle()
+elif choice == 2:
+    rectangle()
 else:
-    print('Нет, конь не может ходить в эту точку.')     
+    print('Ошибка ввода')        
